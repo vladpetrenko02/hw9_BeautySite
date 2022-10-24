@@ -173,7 +173,7 @@ form,
 }
 
 .first-section{
-    background-image: url(/images/background.jpg);
+    background-image: url(../images/background.jpg);
     padding: 180px 0;
 }
 
