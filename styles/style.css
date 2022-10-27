@@ -383,9 +383,15 @@ input[type="email"]:focus{
     margin: 0 auto;
 }
 
-.simple-block img:hover,
-.last-block img:hover{
-    box-shadow: 0 0 3px black;
+.simple-block a,
+.last-block a{
+    display: block;
+    text-align: center;
+}
+
+.simple-block div:hover,
+.last-block div:hover{
+    box-shadow: 0 0 5px black;
 }
 
 .last-block div{
