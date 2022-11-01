@@ -1,7 +1,67 @@
 .wrapper{
     width: 100%;
     position: relative;
-    overflow: hidden;
+    overflow-x: hidden;
+}
+
+.wrapper::after{
+    content: '';
+    position: absolute;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    animation: end .65s linear 1s 1 both;
+    background-color: #ec225c;
+}
+
+.start-animation{
+    background-color: white;
+    position: absolute;
+    z-index: 5;
+    width: 100%;
+    height: 100%;
+    animation: start .4s linear 1.25s 1 both;
+}
+
+.start-animation img{
+    display: block;
+    margin: 0 auto;
+    animation: logo .5s linear 1 both;
+}
+
+@keyframes end{
+    0%{
+        top: 0;
+        left: -100%;
+    }
+    50%{
+        top: 0;
+        left: 0;
+    }
+    100%{
+        top: 0;
+        left: 100%;
+    }
+}
+
+@keyframes logo{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+@keyframes start{
+    0%{
+        top: 0;
+        left: 0;
+    }
+    100%{
+        top: 0;
+        left: 100%;
+    }
 }
 
 body{
@@ -29,9 +89,14 @@ body{
 
 .header-part-one ul li{
     float: left;
+    transition: all .3s;
 }
 
-.header-part-one ul li a:hover{
+.header-part-one ul li:hover{
+    transform: scale(1.1);
+}
+
+.header-part-one a:hover{
     color: #000000;
 }
 
@@ -42,6 +107,7 @@ body{
 .header-part-one a{
     text-decoration: none;
     color: #333333;
+    transition: all .3s;
 }
 
 .container{
@@ -64,12 +130,13 @@ body{
 }
 
 h1{
-    margin: 0;
+    margin: 0 0 0 20px;
     font-weight: 700;
     font-size: 36px;
     line-height: 42px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
+    transition: all .3s;
 }
 
 .logo-caption{
@@ -80,14 +147,24 @@ h1{
 .logo-caption a{
     text-decoration: none;
     color: #F13C6E;
+    transition: all .3s;
 }
 
-.logo-caption a:hover{
-    color: #ec225c;
+.logo-caption h1:hover{
+    transform: translateY(-2px)
+}
+
+@keyframes circle{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
 }
 
 .logo{
-    padding-right: 20px;
+    animation: circle 5s linear infinite;
 }
 
 .logo,
@@ -107,9 +184,48 @@ form,
     display: inline-block;
     vertical-align: middle;
     margin-right: 40px;
+    transition: all .3s linear;
+}
+
+.phone:hover{
+    transform: translateY(-2px)
+}
+
+.btn-animation{
+    text-align: center;
+    padding: 10px 0;
+    border: 2px solid #F13C6E;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 170px;
+    color: white;
+    background-color: #F13C6E;
+    font-size: 14px;
+    line-height: 16px;
+    transition: all .3s;
+}
+
+.btn-animation-fix{
+    border: 2px solid white;
+    top: 0;
+    right: 100%;
+    background-color: white;
+    color: #F13C6E;
+}
+
+.btn-relative{
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-relative:hover .btn-animation-fix{
+    top: 0;
+    right: 0;
 }
 
 .phone+form button{
+    position: relative;
     cursor: pointer;
     background-color: #ffffff;
     width: 170px;
@@ -119,14 +235,16 @@ form,
     font-size: 14px;
     line-height: 16px;
     text-align: center;
+    overflow: hidden;
 }
 
 .phone a:hover{
     color: #414141;
 }
 
-.phone+form button:hover{
-    box-shadow: 0 0 5px #F13C6E;
+button[type="submit"]:hover .btn-animation{
+    top: 0;
+    right: 0;
 }
 
 .phone a{
@@ -157,6 +275,11 @@ form,
 
 .header-part-three ul li{
     float: left;
+    transition: all .3s;
+}
+
+.header-part-three ul li:hover{
+    transform: scale(1.1);
 }
 
 .header-part-three ul li+li{
@@ -166,6 +289,7 @@ form,
 .header-part-three a{
     text-decoration: none;
     color: #000000;
+    transition: all .3s;
 }
 
 .header-part-three a:hover{
@@ -275,10 +399,12 @@ h3{
     text-align: center;
     letter-spacing: 0.05em;
     padding: 9px 0;
+    transition: all .3s;
 }
 
 .simple-card a:hover{
     box-shadow: 0 0 5px #F13C6E;
+    transform: scale(1.1);
 }
 
 .third-section{
@@ -339,7 +465,7 @@ input[type="email"]:focus{
 }
 
 .optional-data a{
-    display: inline-block;
+    display: block;
     width: 170px;
     text-align: center;
     padding: 7px 0;
@@ -350,10 +476,12 @@ input[type="email"]:focus{
     line-height: 17px;
     font-size: 14px;
     color: #FFFFFF;
+    transition: all .3s;
 }
 
 .optional-data a:hover{
     box-shadow: 0 0 5px white;
+    transform: scale(1.1);
 }
 
 .car{
@@ -379,6 +507,7 @@ input[type="email"]:focus{
 
 .simple-block img,
 .last-block img{
+    transition: all .3s;
     display: block;
     margin: 0 auto;
 }
@@ -389,9 +518,9 @@ input[type="email"]:focus{
     text-align: center;
 }
 
-.simple-block div:hover,
-.last-block div:hover{
-    box-shadow: 0 0 5px black;
+.simple-block img:hover,
+.last-block img:hover{
+    transform: scale(1.2);
 }
 
 .last-block div{
@@ -439,6 +568,11 @@ input[type="email"]:focus{
     font-weight: 400;
     font-size: 12px;
     line-height: 28px;
+    transition: all .3s;
+}
+
+.categories ul li:hover{
+    transform: translateX(3px);
 }
 
 .categories+.categories{
@@ -448,6 +582,7 @@ input[type="email"]:focus{
 .categories a{
     text-decoration: none;
     color: #828282;
+    transition: all .3s;
 }
 
 .categories a:hover{
@@ -467,6 +602,11 @@ input[type="email"]:focus{
 .logo-yfi a+a{
     margin-left: 18px;
 }
+
+.logo-yfi a:hover img{
+    animation: circle 1s linear alternate;
+}
+
 
 .padding-fix{
     padding: 40px 0;
@@ -494,8 +634,14 @@ input[type="email"]:focus{
     line-height: 14px;
     color: #828282;
     float: right;
+    transition: all .3s;
+}
+
+.footer-third-part span+a>span{
+    transition: all .3s;
 }
 
 .footer-third-part span+a>span:hover{
     color: black;
+    transform: translateY(-2px);
 }
